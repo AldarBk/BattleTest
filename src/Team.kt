@@ -1,16 +1,19 @@
-class Team(var teamName: String, var numberOfWarriors: Int) {
-    var warrior = mutableListOf<AbstractWarrior>()
+class Teams {
 
-    init {
+    private val team: MutableList<AbstractWarrior> = mutableListOf()
 
-        for (i in 1 .. numberOfWarriors) {
-            if (50.chanceCalculator()){
-                warrior.add(Soldier(20,5,10, weapon = Weapon,5))
-            } else if (30.chanceCalculator()){
-                warrior.add(Captain(60,20,45, weapon = Weapon,20))
-            } else {
-                warrior.add(General(100,60,85, weapon = Weapon,60))
-            }
-        }
+    fun draftTeam(): MutableList<AbstractWarrior> {
+        println("Enter a number of warriors for a Team")
+        val n = readln().toInt()
+        for (i in 1..n)
+            if (45.chanceCalculator()) {
+                team.add(Captain(60,20,45,60))
+            } else if (90.chanceCalculator()) {
+                team.add(Soldier(20,5,10,20))
+            } else
+                team.add(General(100,60,85,100))
+
+        println(team.toString())
+        return team
     }
 }
