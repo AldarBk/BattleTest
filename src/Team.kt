@@ -1,6 +1,6 @@
 class Teams {
 
-    private val team: MutableList<AbstractWarrior> = mutableListOf()
+     val team: MutableList<AbstractWarrior> = mutableListOf()
 
     fun draftTeam(): MutableList<AbstractWarrior> {
         println("Enter a number of warriors for a Team")
